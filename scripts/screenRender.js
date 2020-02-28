@@ -5,7 +5,13 @@ canvas.width = 600
 canvas.height = 800
 
 setInterval(function(){
-    myGame.updateScreen()
+    if (myGame.play){
+        myGame.updateScreen()
+        document.querySelector('#newGame-btn').textContent = 'PAUSE'
+    } else if (!myGame.play){
+        document.querySelector('#newGame-btn').textContent = 'RESTART'
+
+    }
 },30)
 
 
