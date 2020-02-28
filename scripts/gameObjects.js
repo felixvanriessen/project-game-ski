@@ -1,7 +1,25 @@
 class Player {
     constructor(){
-        
+        this.x = 300
+        this.y = 300
+        this.angle = 0 * (Math.PI / 180)
     }
+
+    draw(){
+        ctx.strokeStyle = 'black'
+        
+        ctx.beginPath()
+        ctx.moveTo(this.x,this.y)
+        ctx.lineTo()
+
+
+
+
+        ctx.stroke()
+
+    }
+
+
 
 }
 

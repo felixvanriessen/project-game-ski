@@ -6,6 +6,9 @@ class Game {
         this.treeFrequency = 20
 
     }
+    playerHandler(){
+        player.draw()
+    }
     treeHandler(){
         //make new trees when not enough
         if (this.trees.length < this.treeFrequency){
@@ -28,10 +31,20 @@ class Game {
             }
         }
     }
+
+    updateScreen(){
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0,0,600,800)
+
+        this.treeHandler()
+        this.playerHandler()
+    }
+
 }
 
-let myGame = new Game
 
+let myGame = new Game
+let player = new Player
 
 
 
