@@ -6,7 +6,7 @@ canvas.height = 800
 
 setInterval(function(){
     myGame.updateScreen()
-},50)
+},30)
 
 
 

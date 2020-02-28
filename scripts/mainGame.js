@@ -7,7 +7,9 @@ class Game {
 
     }
     playerHandler(){
-        player.draw()
+        player.drawBody()
+        player.drawSkis()
+        player.moveHorizontal()
     }
     treeHandler(){
         //make new trees when not enough
@@ -36,8 +38,11 @@ class Game {
         ctx.fillStyle = 'white'
         ctx.fillRect(0,0,600,800)
 
-        this.treeHandler()
         this.playerHandler()
+        this.treeHandler()
+        
+
+
     }
 
 }
