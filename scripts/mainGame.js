@@ -4,6 +4,7 @@ class Game {
         this.gameOver = false
         this.score = 0
         this.scoreCounter = 0
+        this.difficultyCounter = 0
         this.speed = 5
 
         this.trees = []
@@ -61,28 +62,50 @@ class Game {
 
     scoreHandler(){
         this.scoreCounter++
-        if (this.scoreCounter > 10){
+        
+        if (this.scoreCounter > 20){
             this.scoreCounter = 0
             this.score++
+            this.difficultyCounter++
         }
-        document.querySelector('#gameScore').textContent = this.score
+        document.querySelector('#gameScore').textContent = this.score    
+
+        if(this.difficultyCounter > 10){
+            this.treeFrequency += 2
+            this.difficultyCounter = 0
+        }
+
+
+
+
+
     }
+    
 
     collisionHandler(){
+        //check out of bounds collision
         if (player.y < 0 || player.y > 800){
             this.gameOver = true
         }
         if (player.x > 600 || player.x < 0){
             this.gameOver = true
         }
-
+        //check tree and player collision
+        for (let t of this.trees){
+            if (player.y <= t.y + 4 && player.y > t.y - 14){
+                if (player.x <= t.x + 8 && player.x >= t.x - 8){
+                    this.gameOver = true
+                    break
+                }
+            }
+        }
         
     }
 
     gameChecker(){
         if (this.gameOver){
             this.play = false
-            this.score = 0
+            // this.score = 0
             this.scoreCounter = 0
             this.speed = 5
             this.trees = []

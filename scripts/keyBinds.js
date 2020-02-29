@@ -18,6 +18,7 @@ document.querySelector('#newGame-btn').addEventListener('click', function(){
     if (myGame.play){
         myGame.gameOver = true
     }
+    myGame.score = 0
     myGame.play = true
 })
 
